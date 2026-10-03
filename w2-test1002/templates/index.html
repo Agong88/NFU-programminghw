@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 程式練習介面</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <main class="container">
+        <header class="hero">
+            <span class="eyebrow">CODE PRACTICE · AI ASSISTANT</span>
+            <h1>AI 程式練習助手</h1>
+            <p>這是一個用於練習程式設計的 AI 助手。請在下方輸入您的程式碼，並點擊「執行」按鈕來查看結果。</p>
+        </header>
+
+        <section class="practice" aria-labelledby="topic-heading">
+            <div class="section-heading">
+                <span class="step">01</span>
+                <h2 id="topic-heading">請輸入選擇的學習主題:</h2>
+            </div>
+            <div class="topics">
+                <label><input type="radio" name="topic" value="輸入輸出"><span>輸入輸出</span></label>
+                <label><input type="radio" name="topic" value="條件判斷"><span>條件判斷</span></label>
+                <label><input type="radio" name="topic" value="迴圈"><span>迴圈</span></label>
+                <label><input type="radio" name="topic" value="串列"><span>串列</span></label>
+            </div>
+            <button class="min-btn" type="button">幫我出題 <span aria-hidden="true">↗</span></button>
+        </section>
+
+        <div class="result-grid">
+            <section class="question_ai" aria-labelledby="question-heading">
+                <div class="section-heading">
+                    <span class="step">02</span>
+                    <h2 id="question-heading">AI 出題</h2>
+                </div>
+                <p>請選擇一個主題，然後點擊「幫我出題」按鈕，AI 將會為您生成一個練習題目。</p>
+            </section>
+            <section class="feedback" aria-labelledby="feedback-heading">
+                <div class="section-heading">
+                    <span class="step">03</span>
+                    <h2 id="feedback-heading">AI 回饋</h2>
+                </div>
+                <p>請在下方輸入您的程式碼，然後點擊「執行」按鈕，AI 將會為您提供回饋和建議。</p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
