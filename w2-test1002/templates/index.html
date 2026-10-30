@@ -11,7 +11,7 @@
         <header class="hero">
             <span class="eyebrow">CODE PRACTICE × AI ASSISTANT</span>
             <h1>AI 程式練習助手</h1>
-            <p>選擇想練習的主題，再回答題目。目前每個主題各提供一題範例。</p>
+            <p>選擇想練習的主題，讓 AI 自動產生 Python 題目，作答後查看答案與解析。</p>
         </header>
 
         <section class="practice" aria-labelledby="topic-heading">
@@ -33,6 +33,12 @@
             </form>
         </section>
 
+        {% if error %}
+        <section class="feedback feedback--incorrect" role="alert">
+            <p>{{ error }}</p>
+        </section>
+        {% endif %}
+
         {% if question %}
         <section class="question_ai" aria-labelledby="question-heading">
             <div class="section-heading">
@@ -42,6 +48,7 @@
             <p class="question-text">{{ question.text }}</p>
             <form method="post" action="{{ url_for('home') }}">
                 <input type="hidden" name="action" value="answer">
+                <input type="hidden" name="question_id" value="{{ question_id }}">
                 <input type="hidden" name="category" value="{{ selected_category }}">
                 <div class="topics" role="group" aria-label="答案選項">
                     {% for key, label in question.options %}
@@ -68,6 +75,10 @@
             <p>答錯了，請再試一次。</p>
             {% else %}
             <p>請先選擇一個答案。</p>
+            {% endif %}
+            {% if result in ['correct', 'incorrect'] %}
+            <p>正確答案：{{ question.answer }}</p>
+            <p class="explanation">{{ question.explanation }}</p>
             {% endif %}
         </section>
         {% endif %}

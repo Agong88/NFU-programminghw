@@ -140,6 +140,13 @@ h2 { margin-bottom: 0; font-size: 20px; line-height: 1.4; }
 .min-btn:hover { background: #284d90; transform: translateY(-2px); }
 .min-btn:focus-visible { outline: 3px solid #7da5f0; outline-offset: 3px; }
 
+.question-text, .explanation, .question_ai .topics span {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+.question_ai .topics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.question_ai .topics span { height: 100%; text-align: left; }
+
 .result-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -166,6 +173,7 @@ h2 { margin-bottom: 0; font-size: 20px; line-height: 1.4; }
 }
 
 @media (max-width: 480px) {
+    .question_ai .topics { grid-template-columns: 1fr; }
     .result-grid { grid-template-columns: 1fr; }
     .question_ai, .feedback { min-height: 0; }
 }
